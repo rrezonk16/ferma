@@ -15,3 +15,12 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+// index.js or App.js
+if ('serviceWorker' in navigator && 'PushManager' in window) {
+  navigator.serviceWorker.register('/worker.js')
+      .then(function(registration) {
+          console.log('Service Worker registered with scope:', registration.scope);
+      }).catch(function(error) {
+          console.log('Service Worker registration failed:', error);
+      });
+}
